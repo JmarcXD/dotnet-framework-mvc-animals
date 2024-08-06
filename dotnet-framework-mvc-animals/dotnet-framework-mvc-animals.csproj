@@ -120,10 +120,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BusinessLogicLayer\AnimalService.cs" />
+    <Compile Include="BusinessLogicLayer\TipoAnimalService.cs" />
+    <Compile Include="Controllers\AnimalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DataAccesLayer\AnimalRepository.cs" />
+    <Compile Include="DataAccesLayer\Connection\DatabaseConnection.cs" />
+    <Compile Include="DataAccesLayer\TipoAnimalRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Animal.cs" />
+    <Compile Include="Models\TipoAnimal.cs" />
+    <Compile Include="Models\ViewModels\AnimalViewModel.cs" />
+    <Compile Include="Models\ViewModels\TipoAnimalViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -177,10 +187,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Animal\Index.cshtml" />
+    <Content Include="Views\Animal\NewAnimalForm.cshtml" />
+    <Content Include="Views\Animal\DeleteAnimalForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

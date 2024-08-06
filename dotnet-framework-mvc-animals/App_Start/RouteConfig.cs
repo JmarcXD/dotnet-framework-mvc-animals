@@ -16,7 +16,7 @@ namespace dotnet_framework_mvc_animals
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Animal", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

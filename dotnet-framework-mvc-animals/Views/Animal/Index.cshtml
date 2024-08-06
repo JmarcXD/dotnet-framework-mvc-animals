@@ -1,0 +1,18 @@
+﻿@using dotnet_framework_mvc_animals.Models;
+
+@model List<Animal>
+
+
+@{
+    ViewBag.Title = "Animales";
+}
+
+
+<ul>
+    @foreach (Animal a in Model)
+    {
+        <li>IdAnimal: @a.IdAnimal &nbsp; &nbsp; Nombre Animal: @a.NombreAnimal</li>
+    }
+
+    <h1>@ViewBag.luckyAnimal</h1>
+</ul>

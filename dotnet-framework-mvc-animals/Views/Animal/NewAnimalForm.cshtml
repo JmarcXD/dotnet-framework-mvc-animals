@@ -1,0 +1,54 @@
+﻿@using dotnet_framework_mvc_animals.Models.ViewModels;
+
+@model AnimalViewModel
+
+@{
+    ViewBag.Title = "NewAnimalForm";
+}
+
+<h2>NewAnimalForm</h2>
+
+@using (Html.BeginForm("InsertNewAnimal", "Animal", FormMethod.Post))
+{
+
+    <div>
+        @Html.LabelFor(m => m.NombreAnimal)
+        @Html.TextBoxFor(m => m.NombreAnimal)
+        @Html.ValidationMessageFor(m => m.NombreAnimal)
+    </div><br />
+    <div>
+        @Html.LabelFor(m => m.Raza)
+        @Html.TextBoxFor(m => m.Raza)
+        @Html.ValidationMessageFor(m => m.Raza)
+    </div><br />
+    <div>
+        @Html.LabelFor(m => m.RIdTipoAnimal)
+        @Html.DropDownListFor(
+            m => m.RIdTipoAnimal,
+            new SelectList(Model.tipoAnimals, "IdTipoAnimal", "TipoDescripcion"),
+            "Selecciona un tipo de Animal"
+        )
+    </div><br />
+    <div>
+        @Html.LabelFor(m => m.FechaNacimiento)
+        @Html.TextBoxFor(
+             m => m.FechaNacimiento,
+             "{0:yyyy-MM-ddTHH:mm}", 
+             new { @class = "form-control", type = "date" } 
+         )
+        
+    </div><br />
+    <div>
+        <button type="submit">Añadir animal</button>
+    </div>
+
+    if (ViewBag.Error != null)
+    {
+        <p style="color:red;">@ViewBag.Error</p>
+    }
+}
+
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
