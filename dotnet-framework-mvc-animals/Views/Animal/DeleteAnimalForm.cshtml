@@ -8,3 +8,18 @@
 
 <h2>Delete Animal Form</h2>
 
+@using (Html.BeginForm("DeleteAnimal", "Animal", FormMethod.Post))
+{
+
+
+    <div>
+        <select name="idAnimal">
+            @foreach (Animal a in Model)
+            {
+                <option value="@a.IdAnimal">@a.NombreAnimal</option>
+            }
+        </select><br /><br />
+
+        <button type="submit" class="btn btn-danger">Elminar</button>
+    </div>
+}

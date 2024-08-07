@@ -11,7 +11,7 @@
 <ul>
     @foreach (Animal a in Model)
     {
-        <li>IdAnimal: @a.IdAnimal &nbsp; &nbsp; Nombre Animal: @a.NombreAnimal</li>
+        <li>IdAnimal: @a.IdAnimal &nbsp; &nbsp; Nombre Animal: @a.NombreAnimal &nbsp; &nbsp;<button class="btn btn-primary">Editar</button></li> 
     }
 
     <h1>@ViewBag.luckyAnimal</h1>

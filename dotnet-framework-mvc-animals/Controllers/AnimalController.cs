@@ -24,13 +24,18 @@ namespace dotnet_framework_mvc_animals.Controllers
             List<Animal> animals = _animalService.GetAnimalList();
 
 
-            Random rnd = new Random();
+            if (animals.Count != 0)
+            {
+                Random rnd = new Random();
 
-            int randomNumber = rnd.Next(0, animals.Count - 1);
+                int randomNumber = rnd.Next(0, animals.Count - 1);
 
-            ViewBag.luckyAnimal = $"Tu animal de la suerte es {animals[randomNumber].NombreAnimal}";
+                ViewBag.luckyAnimal = $"Tu animal de la suerte es {animals[randomNumber].NombreAnimal}";
 
-            return View(animals);
+                return View(animals);
+            }
+
+            return View();
         }
 
         public ActionResult NewAnimalForm()
@@ -59,19 +64,38 @@ namespace dotnet_framework_mvc_animals.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DeleteAnimalForm() 
+        public ActionResult DeleteAnimalForm()
         {
             List<Animal> animals = _animalService.GetAnimalList();
 
             return View(animals);
         }
 
-
-        [HttpDelete]
+        [HttpPost]
         public ActionResult DeleteAnimal(int idAnimal)
         {
+            _animalService.DeleteTipoAnimal(idAnimal);
+
             return RedirectToAction("Index");
         }
+
         
+
+        [HttpPost]
+        public ActionResult EditAnimal(string NombreAnimal, string Raza, int RIdTipoAnimal, DateTime FechaNacimiento)
+        {
+            Animal updateAnimal = new Animal();
+
+            updateAnimal.NombreAnimal = NombreAnimal;
+            updateAnimal.Raza = Raza;
+            updateAnimal.RIdTipoAnimal = RIdTipoAnimal;
+            updateAnimal.FechaNacimiento = FechaNacimiento;
+
+
+            _animalService.UpdateTipoAnimal(updateAnimal);
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
